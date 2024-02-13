@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ag-service:  # This is the service name, not the container name
+    image: autogen  # This specifies the image name
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    volumes:
+      - ./data:/app
+    container_name: autogen  # This specifies the container name
+
